@@ -13,8 +13,20 @@ interface MeetingModalProps {
 
 function MeetingModal({ isOpen, onClose, title, isJoinMeeting }: MeetingModalProps) {
   const [meetingUrl, setMeetingUrl] = useState("");
+  const { createInstantMeeting, joinMeeting } = useMeetingActions();
 
-  const handleStart = () => {};
+  const handleStart = () => {
+    if (isJoinMeeting) {
+      const meetingId = meetingUrl.split("/").pop();
+      if (meetingId) joinMeeting(meetingId);
+    } else {
+      createInstantMeeting();
+    }
+
+    setMeetingUrl("");
+    onClose();
+  };
+
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
