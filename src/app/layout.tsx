@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import "@stream-io/video-react-sdk/dist/css/styles.css";
 import Navbar from "@/components/Navbar";
 import { ThemeProvider } from "@/components/theme-provider";
 import { RedirectToSignIn, SignedIn, SignedOut } from "@clerk/nextjs";
