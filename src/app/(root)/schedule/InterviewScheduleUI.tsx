@@ -37,8 +37,8 @@ function InterviewScheduleUI() {
   const users = useQuery(api.users.getUsers) ?? [];
   const createInterview = useMutation(api.interviews.createInterview);
 
-  const candidates = users?.filter((u) => u.role === "candidate");
-  const interviewers = users?.filter((u) => u.role === "interviewer");
+  const candidates = users?.filter((u) => u.role === "Candidate");
+  const interviewers = users?.filter((u) => u.role === "Interviewer");
 
   const [formData, setFormData] = useState({
     title: "",
