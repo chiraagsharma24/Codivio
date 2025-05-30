@@ -65,6 +65,8 @@ function CodeEditor() {
                           <Image
                             src={`/${language}.png`}
                             alt={language}
+                            width={20}
+                            height={20}
                             className="w-5 h-5 object-contain"
                           />
                           {LANGUAGES.find((l) => l.id === language)?.name}
@@ -79,6 +81,8 @@ function CodeEditor() {
                             <Image
                               src={`/${lang.id}.png`}
                               alt={lang.name}
+                              width={20}
+                              height={20}
                               className="w-5 h-5 object-contain"
                             />
                             {lang.name}
