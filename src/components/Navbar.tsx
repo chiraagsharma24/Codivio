@@ -1,3 +1,5 @@
+"use client" ;
+
 import Link from "next/link";
 import { ModeToggle } from "./ModeToggle";
 import { CodeIcon, Menu } from "lucide-react";
