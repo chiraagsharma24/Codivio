@@ -6,7 +6,7 @@ It allows seamless communication, collaboration, and evaluation between intervie
 
 ## 🚀 Live Demo
 
-[🌐 View Live Project](https://your-deployed-url.com)
+[🌐 View Live Project](codivio.vercel.app)
 
 > 🔐 **Interviewer Access:**
 - **Email**: chiragnoida3345@gmail.com  
