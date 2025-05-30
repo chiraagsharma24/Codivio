@@ -29,18 +29,18 @@ function MeetingSetup({ onSetupComplete }: { onSetupComplete: () => void }) {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-6 bg-background/95">
+    <div className="min-h-screen flex items-center justify-center p-3 sm:p-6 bg-background/95">
       <div className="w-full max-w-[1200px] mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-6">
           {/* VIDEO PREVIEW CONTAINER */}
-          <Card className="md:col-span-1 p-6 flex flex-col">
+          <Card className="md:col-span-1 p-4 sm:p-6 flex flex-col">
             <div>
-              <h1 className="text-xl font-semibold mb-1">Camera Preview</h1>
-              <p className="text-sm text-muted-foreground">Make sure you look good!</p>
+              <h1 className="text-lg sm:text-xl font-semibold mb-0.5 sm:mb-1">Camera Preview</h1>
+              <p className="text-xs sm:text-sm text-muted-foreground">Make sure you look good!</p>
             </div>
 
             {/* VIDEO PREVIEW */}
-            <div className="mt-4 flex-1 min-h-[400px] rounded-xl overflow-hidden bg-muted/50 border relative">
+            <div className="mt-3 sm:mt-4 flex-1 min-h-[300px] sm:min-h-[400px] rounded-xl overflow-hidden bg-muted/50 border relative">
               <div className="absolute inset-0">
                 <VideoPreview className="h-full w-full" />
               </div>
@@ -48,26 +48,25 @@ function MeetingSetup({ onSetupComplete }: { onSetupComplete: () => void }) {
           </Card>
 
           {/* CARD CONTROLS */}
-
-          <Card className="md:col-span-1 p-6">
+          <Card className="md:col-span-1 p-4 sm:p-6">
             <div className="h-full flex flex-col">
               {/* MEETING DETAILS  */}
               <div>
-                <h2 className="text-xl font-semibold mb-1">Meeting Details</h2>
-                <p className="text-sm text-muted-foreground break-all">{call.id}</p>
+                <h2 className="text-lg sm:text-xl font-semibold mb-0.5 sm:mb-1">Meeting Details</h2>
+                <p className="text-xs sm:text-sm text-muted-foreground break-all">{call.id}</p>
               </div>
 
               <div className="flex-1 flex flex-col justify-between">
-                <div className="spacey-6 mt-8">
+                <div className="space-y-4 sm:space-y-6 mt-6 sm:mt-8">
                   {/* CAM CONTROL */}
                   <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-3">
-                      <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center">
-                        <CameraIcon className="h-5 w-5 text-primary" />
+                    <div className="flex items-center gap-2 sm:gap-3">
+                      <div className="h-8 w-8 sm:h-10 sm:w-10 rounded-full bg-primary/10 flex items-center justify-center">
+                        <CameraIcon className="h-4 w-4 sm:h-5 sm:w-5 text-primary" />
                       </div>
                       <div>
-                        <p className="font-medium">Camera</p>
-                        <p className="text-sm text-muted-foreground">
+                        <p className="font-medium text-sm sm:text-base">Camera</p>
+                        <p className="text-xs sm:text-sm text-muted-foreground">
                           {isCameraDisabled ? "Off" : "On"}
                         </p>
                       </div>
@@ -80,13 +79,13 @@ function MeetingSetup({ onSetupComplete }: { onSetupComplete: () => void }) {
 
                   {/* MIC CONTROL */}
                   <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-3">
-                      <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center">
-                        <MicIcon className="h-5 w-5 text-primary" />
+                    <div className="flex items-center gap-2 sm:gap-3">
+                      <div className="h-8 w-8 sm:h-10 sm:w-10 rounded-full bg-primary/10 flex items-center justify-center">
+                        <MicIcon className="h-4 w-4 sm:h-5 sm:w-5 text-primary" />
                       </div>
                       <div>
-                        <p className="font-medium">Microphone</p>
-                        <p className="text-sm text-muted-foreground">
+                        <p className="font-medium text-sm sm:text-base">Microphone</p>
+                        <p className="text-xs sm:text-sm text-muted-foreground">
                           {isMicDisabled ? "Off" : "On"}
                         </p>
                       </div>
@@ -99,13 +98,13 @@ function MeetingSetup({ onSetupComplete }: { onSetupComplete: () => void }) {
 
                   {/* DEVICE SETTINGS */}
                   <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-3">
-                      <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center">
-                        <SettingsIcon className="h-5 w-5 text-primary" />
+                    <div className="flex items-center gap-2 sm:gap-3">
+                      <div className="h-8 w-8 sm:h-10 sm:w-10 rounded-full bg-primary/10 flex items-center justify-center">
+                        <SettingsIcon className="h-4 w-4 sm:h-5 sm:w-5 text-primary" />
                       </div>
                       <div>
-                        <p className="font-medium">Settings</p>
-                        <p className="text-sm text-muted-foreground">Configure devices</p>
+                        <p className="font-medium text-sm sm:text-base">Settings</p>
+                        <p className="text-xs sm:text-sm text-muted-foreground">Configure devices</p>
                       </div>
                     </div>
                     <DeviceSettings />
@@ -113,11 +112,11 @@ function MeetingSetup({ onSetupComplete }: { onSetupComplete: () => void }) {
                 </div>
 
                 {/* JOIN BTN */}
-                <div className="space-y-3 mt-8">
-                  <Button className="w-full" size="lg" onClick={handleJoin}>
+                <div className="space-y-2 sm:space-y-3 mt-6 sm:mt-8">
+                  <Button className="w-full text-sm sm:text-base" size="lg" onClick={handleJoin}>
                     Join Meeting
                   </Button>
-                  <p className="text-xs text-center text-muted-foreground">
+                  <p className="text-[10px] sm:text-xs text-center text-muted-foreground">
                     Do not worry, our team is super friendly! We want you to succeed. 🎉
                   </p>
                 </div>

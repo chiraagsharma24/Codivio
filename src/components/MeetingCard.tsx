@@ -17,10 +17,10 @@ function MeetingCard({ interview }: { interview: Interview }) {
 
   return (
     <Card>
-      <CardHeader className="space-y-2">
+      <CardHeader className="space-y-1.5 sm:space-y-2">
         <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2 text-sm text-muted-foreground">
-            <CalendarIcon className="h-4 w-4" />
+          <div className="flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm text-muted-foreground">
+            <CalendarIcon className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
             {formattedDate}
           </div>
 
@@ -28,27 +28,28 @@ function MeetingCard({ interview }: { interview: Interview }) {
             variant={
               status === "live" ? "default" : status === "upcoming" ? "secondary" : "outline"
             }
+            className="text-xs sm:text-sm"
           >
             {status === "live" ? "Live Now" : status === "upcoming" ? "Upcoming" : "Completed"}
           </Badge>
         </div>
 
-        <CardTitle>{interview.title}</CardTitle>
+        <CardTitle className="text-base sm:text-lg">{interview.title}</CardTitle>
 
         {interview.description && (
-          <CardDescription className="line-clamp-2">{interview.description}</CardDescription>
+          <CardDescription className="text-xs sm:text-sm line-clamp-2">{interview.description}</CardDescription>
         )}
       </CardHeader>
 
-      <CardContent>
+      <CardContent className="pt-2 sm:pt-4">
         {status === "live" && (
-          <Button className="w-full" onClick={() => joinMeeting(interview.streamCallId)}>
+          <Button className="w-full text-sm sm:text-base" onClick={() => joinMeeting(interview.streamCallId)}>
             Join Meeting
           </Button>
         )}
 
         {status === "upcoming" && (
-          <Button variant="outline" className="w-full" disabled>
+          <Button variant="outline" className="w-full text-sm sm:text-base" disabled>
             Waiting to Start
           </Button>
         )}
