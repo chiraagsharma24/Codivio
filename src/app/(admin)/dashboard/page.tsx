@@ -27,7 +27,7 @@ function DashboardPage() {
     try {
       await updateStatus({ id: interviewId, status });
       toast.success(`Interview marked as ${status}`);
-    } catch (error) {
+    } catch {
       toast.error("Failed to update status");
     }
   };
@@ -47,21 +47,23 @@ function DashboardPage() {
       <div className="space-y-8">
         {INTERVIEW_CATEGORY.map(
           (category) =>
-            groupedInterviews[category.id]?.length > 0 && (
+            groupedInterviews[category.id as keyof typeof groupedInterviews].length > 0 && (
               <section key={category.id}>
                 {/* CATEGORY TITLE */}
                 <div className="flex items-center gap-2 mb-4">
                   <h2 className="text-xl font-semibold">{category.title}</h2>
-                  <Badge variant={category.variant}>{groupedInterviews[category.id].length}</Badge>
+                  <Badge variant={category.variant}>
+                    {groupedInterviews[category.id as keyof typeof groupedInterviews].length}
+                  </Badge>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                  {groupedInterviews[category.id].map((interview: Interview) => {
+                  {groupedInterviews[category.id as keyof typeof groupedInterviews].map((interview: Interview) => {
                     const candidateInfo = getCandidateInfo(users, interview.candidateId);
                     const startTime = new Date(interview.startTime);
 
                     return (
-                      <Card className="hover:shadow-md transition-all">
+                      <Card className="hover:shadow-md transition-all" key={interview._id}>
                         {/* CANDIDATE INFO */}
                         <CardHeader className="p-4">
                           <div className="flex items-center gap-3">

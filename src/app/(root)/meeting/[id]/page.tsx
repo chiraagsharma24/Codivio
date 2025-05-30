@@ -10,11 +10,22 @@ import { useParams } from "next/navigation";
 import { useState } from "react";
  
 function MeetingPage() {
-  const { id } = useParams();
+  const params = useParams();
   const { isLoaded } = useUser();
-  const { call, isCallLoading } = useGetCallById(id);
-
   const [isSetupComplete, setIsSetupComplete] = useState(false);
+  
+  // Get a safe ID value - use empty string if invalid
+  const meetingId = params?.id && typeof params.id === 'string' ? params.id : '';
+  const { call, isCallLoading } = useGetCallById(meetingId);
+
+  // Show invalid ID message if the ID is empty
+  if (!meetingId) {
+    return (
+      <div className="h-screen flex items-center justify-center">
+        <p className="text-2xl font-semibold">Invalid meeting ID</p>
+      </div>
+    );
+  }
 
   if (!isLoaded || isCallLoading) return <LoaderUI />;
 

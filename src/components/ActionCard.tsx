@@ -1,4 +1,4 @@
-import { QuickActionType } from "@/constants";
+import { QuickActionType } from "@/app/constants";
 import { Card } from "./ui/card";
 
 function ActionCard({ action, onClick }: { action: QuickActionType; onClick: () => void }) {
